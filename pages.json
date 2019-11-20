@@ -1,0 +1,118 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/tabbar/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/tabbar/class",
+			"style": {
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/tabbar/cart",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
+			"path": "pages/tabbar/mine",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/tabbar/other",
+			"style": {
+				"navigationBarTitleText": "其他"
+			}
+		}
+	],
+	"subPackages": [{ //  分包
+		"root": "pagesA",
+		"pages": [{
+			"path": "list/list",
+			"style": {
+				"navigationBarTitleText": "列表"
+			}
+		}]
+	}, {
+		"root": "pagesB",
+		"pages": [{
+			"path": "detail/detail",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		}]
+	}],
+	"preloadRule": { //  分包预加载
+		"pagesA/list/list": {
+			"network": "all", //  环境  wife 或 全部
+			"packages": ["__APP__"] //预加载的分包名称 app 主包
+		},
+		"pagesB/detail/detail": {
+			"network": "all",
+			"packages": ["pagesA"]
+		}
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {}
+	},
+	"tabBar": {
+		"color": "#999",
+		"backgroundColor": "#ffffff",
+		"selectedColor": "#fa436a",
+		"borderStyle": "black",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+		"list": [{
+				"text": "首页",
+				"pagePath": "pages/tabbar/home",
+				"iconPath": "static/tabs/tab-home.png",
+				"selectedIconPath": "static/tabs/tab-home-current.png"
+			}, {
+				"text": "分类",
+				"pagePath": "pages/tabbar/class",
+				"iconPath": "static/tabs/tab-my.png",
+				"selectedIconPath": "static/tabs/tab-my-current.png"
+			},
+			{
+				"text": "购物车",
+				"pagePath": "pages/tabbar/cart",
+				"iconPath": "static/tabs/tab-cart.png",
+				"selectedIconPath": "static/tabs/tab-cart-current.png"
+			}, {
+				"text": "我的",
+				"pagePath": "pages/tabbar/mine",
+				"iconPath": "static/tabs/tab-cate.png",
+				"selectedIconPath": "static/tabs/tab-cate.png"
+			},
+			{
+				"text": "其他",
+				"pagePath": "pages/tabbar/other",
+				"iconPath": "static/tabs/tab-my.png",
+				"selectedIconPath": "static/tabs/tab-my-current.png"
+			}
+		],
+		"position": "bottom"
+	},
+	//#ifndef MP
+	"plugins": { //  所使用的插件 可删除
+		"routePlan": {
+			"version": "1.0.3",
+			"provider": "wx753efed1042dbe46"
+		}
+	}
+	// #endif
+
+
+}
